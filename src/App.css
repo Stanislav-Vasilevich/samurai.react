@@ -1,0 +1,11 @@
+.container {
+  width: 1076px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 64px 0 0 0;
+}
