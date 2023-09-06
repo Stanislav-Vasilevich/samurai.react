@@ -1,5 +1,7 @@
 .mainContent {
-  width: 550px;
-  outline: 1px solid #fff;
+  width: calc(100% - 164px);
+  background: white;
   border-radius: 12px;
 }
+
+

@@ -7,8 +7,10 @@
 }
 
 .header__container {
+  width: 1076px;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .header__logo {
@@ -27,8 +29,8 @@
 }
 
 .header__logoImg {
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
 }
 
 .header__logoPhoto {

@@ -1,16 +1,16 @@
-import logo from '../../img/code.png';
+import logo from '../../img/logo.webp';
 import React from 'react';
 import s from './Header.module.css';
 import HeaderUser from './HeaderUser/HeaderUser';
-import './../../App.css';
+import '../../App.module.css';
 
 const Header = () => {
   return (
     <header className={s.header}>
-      <div className={`container ${s.header__container}`}>
+      <div className={`${s.header__container}`}>
         <a className={s.header__logo} href="https://vasilevich.blog">
           <div className={s.header__logoImg}>
-            <img className={s.header__logoPhoto} src={logo} alt="Логотип блога" height="24"/>
+            <img className={s.header__logoPhoto} src={logo} alt="Логотип блога" width="34" height="34"/>
           </div>
           <span className={s.header__logoName}>vasilevich</span>
         </a>

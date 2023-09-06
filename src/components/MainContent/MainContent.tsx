@@ -1,17 +1,12 @@
 import React from 'react';
 import s from './MainContent.module.css';
+import UserBlock from './UserBlock/UserBlock';
 
 const MainContent = () => {
   return (
     <div className={s.mainContent}>
-      <ul>
-        <li>sdf</li>
-        <li>sdf</li>
-        <li>sdf</li>
-        <li>sdf</li>
-        <li>sdf</li>
-        <li>sdf</li>
-      </ul>
+      <UserBlock/>
+      {/*<SidebarRight/>*/}
     </div>
   );
 };
