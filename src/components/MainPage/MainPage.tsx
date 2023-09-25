@@ -1,9 +1,9 @@
 import React from 'react';
-import s from './MainContent.module.css';
+import s from './MainPage.module.css';
 import UserBlock from './UserBlock/UserBlock';
 import Posts from './Posts/Posts';
 
-const MainContent = () => {
+const MainPage = () => {
   return (
     <div className={s.mainContent}>
       <UserBlock/>
@@ -13,4 +13,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default MainPage;
