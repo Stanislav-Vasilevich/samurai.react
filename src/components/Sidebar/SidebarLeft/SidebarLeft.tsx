@@ -6,42 +6,65 @@ import messages from './icons/messages.svg';
 import friends from './icons/friends.svg';
 import communities from './icons/communities.svg';
 import photo from './icons/photo.svg';
-import {Routes, Route} from 'react-router-dom';
-import MainPage from '../../MainPage/MainPage';
-import NewsPage from '../../NewsPage/NewsPage';
+import {v1} from 'uuid';
+import NavSidebarLeft from './NavSidebarLeft/NavSidebarLeft';
+
+const data = [
+  {
+    id: v1(),
+    path: '/',
+    src: iconMyPage,
+    alt: 'User',
+    text: 'Моя страница'
+  },
+  {
+    id: v1(),
+    path: '/news',
+    src: iconNews,
+    alt: 'News',
+    text: 'Новости'
+  },
+  {
+    id: v1(),
+    path: '/messages',
+    src: messages,
+    alt: 'Messages',
+    text: 'Сообщения'
+  },
+  {
+    id: v1(),
+    path: '/friends',
+    src: friends,
+    alt: 'Friends',
+    text: 'Друзья'
+  },
+  {
+    id: v1(),
+    path: '/communities',
+    src: communities,
+    alt: 'Communities',
+    text: 'Сообщества'
+  },
+  {
+    id: v1(),
+    path: '/photo',
+    src: photo,
+    alt: 'Photo',
+    text: 'Фотографии'
+  },
+]
 
 const SidebarLeft = () => {
   return (
-    <Routes>
-      <div className={s.sidebarLeft}>
-        <ul className={s.list}>
-          <li className={s.listItem}>
-            <img src={iconMyPage} alt="User"/>
-            <Route path={'/'} element={<MainPage/>}>Моя страница</Route>
-          </li>
-          <li className={s.listItem}>
-            <img src={iconNews} alt="News"/>
-            <Route path={'/news'} element={<NewsPage/>}>Новости</Route>
-          </li>
-          <li className={s.listItem}>
-            <img src={messages} alt="Messages"/>
-            <span>Сообщения</span>
-          </li>
-          <li className={s.listItem}>
-            <img src={friends} alt="Friends"/>
-            <span>Друзья</span>
-          </li>
-          <li className={s.listItem}>
-            <img src={communities} alt="Communities"/>
-            <span>Сообщества</span>
-          </li>
-          <li className={s.listItem}>
-            <img src={photo} alt=""/>
-            <span>Фотографии</span>
-          </li>
-        </ul>
-      </div>
-    </Routes>
+    <div className={s.sidebarLeft}>
+      <ul className={s.list}>
+        {
+          data.map(i => {
+            return <NavSidebarLeft path={i.path} src={i.src} alt={i.alt} text={i.text}/>
+          })
+        }
+      </ul>
+    </div>
   );
 };
 
