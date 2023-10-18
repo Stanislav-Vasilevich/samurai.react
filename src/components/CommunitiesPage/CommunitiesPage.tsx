@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Communities = () => {
+const CommunitiesPage = () => {
   return (
     <div>
       communities page
@@ -8,4 +8,4 @@ const Communities = () => {
   );
 };
 
-export default Communities;
+export default CommunitiesPage;

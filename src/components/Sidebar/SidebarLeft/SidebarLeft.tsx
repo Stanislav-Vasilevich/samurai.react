@@ -42,7 +42,7 @@ const data = [
     id: v1(),
     path: '/communities',
     src: communities,
-    alt: 'Communities',
+    alt: 'CommunitiesPage',
     text: 'Сообщества'
   },
   {
