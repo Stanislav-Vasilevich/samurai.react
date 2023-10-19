@@ -6,7 +6,7 @@ import MessagesPage from './components/MessagesPage/MessagesPage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
 import Communities from './components/CommunitiesPage/CommunitiesPage';
 import PhotoPage from './components/PhotoPage/PhotoPage';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import NewsPage from './components/NewsPage/NewsPage';
 import Error404 from './components/ErrorPage404/ErrorPage404';
@@ -19,7 +19,7 @@ type PropsType = {
 
 function App(props: PropsType) {
   return (
-    <BrowserRouter>
+    <>
       <Header/>
       <main className={`${s.main__content}`}>
         <SidebarLeft/>
@@ -33,7 +33,7 @@ function App(props: PropsType) {
           <Route path={'/*'} element={<Error404/>}/>
         </Routes>
       </main>
-    </BrowserRouter>
+    </>
   );
 }
 

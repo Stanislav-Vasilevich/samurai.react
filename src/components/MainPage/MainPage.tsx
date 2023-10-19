@@ -10,6 +10,7 @@ type PropsType = {
 }
 
 const MainPage = (props: PropsType) => {
+	console.log(props.userBlock)
 	return (
 		<div className={s.mainContent}>
 			<UserBlock userBlock={props.userBlock}/>
