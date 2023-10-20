@@ -10,11 +10,10 @@ import {Route, Routes} from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import NewsPage from './components/NewsPage/NewsPage';
 import Error404 from './components/ErrorPage404/ErrorPage404';
-import {PostType, UserBlockType} from "./index";
+import {StateType} from "./redux/state";
 
 type PropsType = {
-	userBlock: UserBlockType
-	posts: Array<PostType>
+	state: StateType
 }
 
 function App(props: PropsType) {
@@ -24,7 +23,7 @@ function App(props: PropsType) {
       <main className={`${s.main__content}`}>
         <SidebarLeft/>
         <Routes>
-          <Route path={'/'} element={<MainPage userBlock={props.userBlock} posts={props.posts} />}/>
+          <Route path={'/'} element={<MainPage state={props.state}/>}/>
           <Route path={'/news'} element={<NewsPage/>}/>
           <Route path={'/messages'} element={<MessagesPage/>}/>
           <Route path={'/friends'} element={<FriendsPage/>}/>

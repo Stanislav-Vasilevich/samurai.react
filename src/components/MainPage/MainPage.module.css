@@ -3,4 +3,13 @@
   border-radius: 12px;
 }
 
+.content {
+	flex-basis: 550px;
+	flex-grow: 1;
+}
+
+.mainContentAndRightSidebar {
+	display: flex;
+	gap: 20px;
+}
 

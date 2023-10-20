@@ -1,5 +1,4 @@
 .sidebarRight {
-  width: 345px;
-  background: red;
-  border-radius: 12px;
+	flex-basis: 345px;
+	flex-grow: 1;
 }

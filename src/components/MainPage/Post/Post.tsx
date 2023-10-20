@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './Post.module.css';
-import photo from './my-photo.webp';
 import iconLikes from './icon-likes.svg';
 
 type PropsType = {

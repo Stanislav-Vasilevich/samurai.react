@@ -60,7 +60,7 @@ const SidebarLeft = () => {
       <ul className={s.list}>
         {
           data.map(i => {
-            return <NavSidebarLeft path={i.path} src={i.src} alt={i.alt} text={i.text}/>
+            return <NavSidebarLeft key={i.id} path={i.path} src={i.src} alt={i.alt} text={i.text}/>
           })
         }
       </ul>

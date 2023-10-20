@@ -1,8 +1,6 @@
 import React from 'react';
 import s from './UserBlock.module.css';
-import mainPhoto from './img/mainPhoto.png';
-import avatar from './img/avatar.webp';
-import {UserBlockType} from "../../../index";
+import {UserBlockType} from "../../../redux/state";
 
 type PropsType = {
 	userBlock: UserBlockType

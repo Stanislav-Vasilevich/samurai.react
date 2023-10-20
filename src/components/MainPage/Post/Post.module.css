@@ -1,5 +1,6 @@
 .post {
-  width: 550px;
+  width: 100%;
+	box-sizing: border-box;
   background: white;
   border-radius: 12px;
   padding: 16px 20px;

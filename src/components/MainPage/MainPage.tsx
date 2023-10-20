@@ -1,35 +1,38 @@
 import React from 'react';
 import s from './MainPage.module.css';
 import UserBlock from './UserBlock/UserBlock';
-import {PostType, UserBlockType} from "../../index";
 import Post from "./Post/Post";
+import SidebarRight from "../Sidebar/SidebarRight/SidebarRight";
+import {StateType} from "../../redux/state";
 
 type PropsType = {
-	userBlock: UserBlockType
-	posts: Array<PostType>
+	state: StateType
 }
 
 const MainPage = (props: PropsType) => {
-	console.log(props.userBlock)
 	return (
 		<div className={s.mainContent}>
-			<UserBlock userBlock={props.userBlock}/>
-			{props.posts.map(t => {
-				return (
-					<Post
-						key={t.id}
-						avatarPhoto={t.avatarPhoto}
-						avatarPhotoAlt={t.avatarPhotoAlt}
-						name={t.name}
-						date={t.date}
-						text={t.text}
-						photo={t.photo}
-						photoAlt={t.photoAlt}
-						likesCount={t.likesCount}
-					/>
-				)
-			})}
-			{/*<SidebarRight/>*/}
+			<UserBlock userBlock={props.state.userBlock}/>
+			<div className={s.mainContentAndRightSidebar}>
+				<div className={s.content}>
+					{props.state.posts.map(t => {
+						return (
+							<Post
+								key={t.id}
+								avatarPhoto={t.avatarPhoto}
+								avatarPhotoAlt={t.avatarPhotoAlt}
+								name={t.name}
+								date={t.date}
+								text={t.text}
+								photo={t.photo}
+								photoAlt={t.photoAlt}
+								likesCount={t.likesCount}
+							/>
+						)
+					})}
+				</div>
+				<SidebarRight state={props.state.friends}/>
+			</div>
 		</div>
 	);
 };
