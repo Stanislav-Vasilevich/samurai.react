@@ -3,11 +3,12 @@ import backgroundPhoto from './../../src/components/MainPage/UserBlock/img/mainP
 import avatarPhoto from './../../src/components/MainPage/UserBlock/img/avatar.webp';
 import {v1} from "uuid";
 import photoPost from './../components/MainPage/Post/my-photo.webp';
-import alekseyEterevskov from './../components/Sidebar/SidebarRight/aleksey-eterevskov.jpeg';
-import elenaKilyanova from './../components/Sidebar/SidebarRight/helena-kilyanova.jpeg';
-import arturDjaarbekov from './../components/Sidebar/SidebarRight/arturDjaarbekov.webp';
+import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
+import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
+import olegSobolev from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
 
 export type UserBlockType = {
+  id: string
   backgroundPhoto: string
   backgroundPhotoAlt: string
   avatarPhoto: string
@@ -36,43 +37,75 @@ export type FriendType = {
   avatar: string
   status: boolean
 }
-export type StateType = {
+export type MainPageType = {
   userBlock: UserBlockType
   posts: Array<PostType>
+}
+type NewsPageType = {}
+type messageType = {
+  [key: string]: Array<{}>
+}
+type MessagesPageType = {
+  message: messageType
+}
+type FriendsPageType = {
   friends: Array<FriendType>
+}
+type CommunitiesPageType = {}
+type PhotoPageType = {}
+export type StateType = {
+  mainPage: MainPageType
+  newsPage: NewsPageType
+  messagesPage: MessagesPageType
+  friendsPage: FriendsPageType
+  communitiesPage: CommunitiesPageType
+  photoPage: PhotoPageType
 }
 
 export const state: StateType = {
-  userBlock: {
-    backgroundPhoto: backgroundPhoto,
-    backgroundPhotoAlt: 'Фоновая картинка страницы пользователя',
-    avatarPhoto: avatarPhoto,
-    avatarPhotoAlt: 'Аватарка пользователя',
-    name: 'Станислав Василевич',
-    statusLink: 'https://it-bunker.studio',
-    statusText: `. Frontend developer. Stack:
-            HTML5, CSS3, JavaScript(ES-6), React, TDD, Vite,
-            GIT, NodeJS,WebPack, SASS, Gulp`,
-    pointMapIcon: pointMap,
-    pointMapIconAlt: 'Иконка - точка на карте',
-    town: 'Краснодар'
-  },
-  posts: [
-    {
+  mainPage: {
+    userBlock: {
       id: v1(),
+      backgroundPhoto: backgroundPhoto,
+      backgroundPhotoAlt: 'Фоновая картинка страницы пользователя',
       avatarPhoto: avatarPhoto,
       avatarPhotoAlt: 'Аватарка пользователя',
       name: 'Станислав Василевич',
-      date: '20 августа в 11:48',
-      text: 'Жизнь это код, а код это кайф))',
-      photo: photoPost,
-      photoAlt: 'Пишу код в гамаке посреди сада абрикосов',
-      likesCount: 5,
+      statusLink: 'https://vasilevich.blog',
+      statusText: `. Frontend developer. Stack:
+            HTML5, CSS3, JavaScript(ES-6), React, TDD, Vite,
+            GIT, NodeJS,WebPack, SASS, Gulp`,
+      pointMapIcon: pointMap,
+      pointMapIconAlt: 'Иконка - точка на карте',
+      town: 'Краснодар'
     },
-  ],
-  friends: [
-    {id: v1(), name: 'Алексей Етеревсков', avatar: alekseyEterevskov, status: true},
-    {id: v1(), name: 'Елена Кильянова', avatar: elenaKilyanova, status: true},
-    {id: v1(), name: 'Артур Джаарбеков', avatar: arturDjaarbekov, status: false},
-  ],
+    posts: [
+      {
+        id: v1(),
+        avatarPhoto: avatarPhoto,
+        avatarPhotoAlt: 'Аватарка пользователя',
+        name: 'Станислав Василевич',
+        date: '20 августа в 11:48',
+        text: 'Жизнь это код, а код это кайф))',
+        photo: photoPost,
+        photoAlt: 'Пишу код в гамаке посреди сада абрикосов',
+        likesCount: 5,
+      },
+    ],
+  },
+  newsPage: {},
+  messagesPage: {
+    message: {
+      [123]: [{}, {}, {}],
+    }
+  },
+  friendsPage: {
+    friends: [
+      {id: v1(), name: 'Алексей Етеревсков', avatar: alekseyEterevskov, status: true},
+      {id: v1(), name: 'Елена Кильянова', avatar: elenaKilyanova, status: false},
+      {id: v1(), name: 'Антон Борисенко', avatar: olegSobolev, status: true},
+    ],
+  },
+  communitiesPage: {},
+  photoPage: {}
 }

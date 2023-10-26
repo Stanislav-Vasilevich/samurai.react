@@ -71,15 +71,17 @@ const data: Array<userType> = [
 
 const MessagesPage = () => {
   return (
-    <ul className={s.list}>
-      {
-        data.map(i => {
-          return (
-            <Message key={i.id} avatar={i.photo} name={i.name} text={i.text} alt={i.alt} date={i.date}/>
-          )
-        })
-      }
-    </ul>
+    <div className={s.mainContent}>
+      <ul className={s.list}>
+        {
+          data.map(i => {
+            return (
+              <Message key={i.id} avatar={i.photo} name={i.name} text={i.text} alt={i.alt} date={i.date}/>
+            )
+          })
+        }
+      </ul>
+    </div>
   );
 };
 

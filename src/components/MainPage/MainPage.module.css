@@ -3,7 +3,7 @@
   border-radius: 12px;
 }
 
-.content {
+.mainContent {
 	flex-basis: 550px;
 	flex-grow: 1;
 }

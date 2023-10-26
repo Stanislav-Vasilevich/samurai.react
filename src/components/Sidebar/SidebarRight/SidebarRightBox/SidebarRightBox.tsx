@@ -11,12 +11,12 @@ const SidebarRightBox = (props: PropsType) => {
 	return (
 		<div className={s.box}>
 			{/* online */}
-			<FriendsFeed state={props.state} filter='online'/>
+			<FriendsFeed state={props.state} filter='online' title='Друзья онлайн'/>
 
 			<div className={s.hr}></div>
 
 		{/*	offline */}
-			<FriendsFeed state={props.state} filter='all'/>
+			<FriendsFeed state={props.state} title='Друзья'/>
 		</div>
 	);
 };
