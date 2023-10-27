@@ -1,3 +1,8 @@
+.mainContent {
+  height: 100%;
+  background: red;
+}
+
 .list {
   box-sizing: border-box;
   width: 550px;
@@ -8,16 +13,25 @@
 }
 
 .message {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 10px 0 0 20px;
-  cursor: pointer;
+  list-style-type: none;
 }
 
 .message:hover {
   background: rgba(174, 183, 194, 0.12);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  color: black;
+  text-decoration: none;
+  padding: 10px 0 0 20px;
+  cursor: pointer;
 }
 
 .img {
@@ -45,11 +59,10 @@
 }
 
 .text {
+  width: 380px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 13px;
-  width: 380px;
   word-wrap:break-word;
 }
 

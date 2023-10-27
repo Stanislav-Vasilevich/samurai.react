@@ -8,6 +8,14 @@ import three from './Message/three.jpg';
 import four from './Message/four.jpg';
 import five from './Message/five.jpg';
 import six from './Message/six.jpg';
+import {FriendsPageType, MessagesPageType} from '../../redux/state';
+import {Route, Routes} from 'react-router-dom';
+import MessagePage from './Message/MessagePage/MessagePage';
+
+type PropsType = {
+  stateFriends: FriendsPageType
+  stateMessage: MessagesPageType
+}
 
 export type userType = {
   id: string
@@ -69,18 +77,30 @@ const data: Array<userType> = [
   },
 ]
 
-const MessagesPage = () => {
+const MessagesPage = (props: PropsType) => {
   return (
     <div className={s.mainContent}>
       <ul className={s.list}>
         {
-          data.map(i => {
+          props.stateFriends.friends.map(i => {
             return (
-              <Message key={i.id} avatar={i.photo} name={i.name} text={i.text} alt={i.alt} date={i.date}/>
+              <Message key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname} text={props.stateMessage.message[i.id]}/>
             )
           })
         }
       </ul>
+
+      <div className={s.routes}>
+        {
+          props.stateFriends.friends.filter(f => {
+            return (
+            <Routes key={f.id}>
+              <Route path={`/${f.name}-${f.surname}`} element={<MessagePage/>}/>
+            </Routes>
+            )
+          })
+        }
+      </div>
     </div>
   );
 };

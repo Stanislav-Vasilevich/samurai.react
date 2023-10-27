@@ -26,7 +26,7 @@ const FriendsFeed = (props: PropsType) => {
         {
           props.filter === 'online'
             ? onlineFriends.map(f => {
-              const name = f.name.split(' ')[0];
+              const name = f.name;
 
               return (
                 <li className={s.friendsListItem} key={f.id}>

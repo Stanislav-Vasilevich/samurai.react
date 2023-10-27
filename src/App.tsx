@@ -25,7 +25,7 @@ function App(props: PropsType) {
         <Routes>
           <Route path={'/'} element={<MainPage state={props.state}/>}/>
           <Route path={'/news'} element={<NewsPage/>}/>
-          <Route path={'/messages'} element={<MessagesPage/>}/>
+          <Route path={'/messages'} element={<MessagesPage stateFriends={props.state.friendsPage} stateMessage={props.state.messagesPage}/>}/>
           <Route path={'/friends'} element={<FriendsPage/>}/>
           <Route path={'/communities'} element={<Communities/>}/>
           <Route path={'/photo'} element={<PhotoPage/>}/>

@@ -1,10 +1,11 @@
 import pointMap from './../../src/components/MainPage/UserBlock/img/point-map.svg';
 import backgroundPhoto from './../../src/components/MainPage/UserBlock/img/mainPhoto.png';
 import avatarPhoto from './../../src/components/MainPage/UserBlock/img/avatar.webp';
-import {v1} from "uuid";
+import {v1} from 'uuid';
 import photoPost from './../components/MainPage/Post/my-photo.webp';
 import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
 import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
+import antonBorisenko from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
 import olegSobolev from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
 
 export type UserBlockType = {
@@ -34,6 +35,7 @@ type PostType = {
 export type FriendType = {
   id: string
   name: string
+  surname: string
   avatar: string
   status: boolean
 }
@@ -42,13 +44,19 @@ export type MainPageType = {
   posts: Array<PostType>
 }
 type NewsPageType = {}
-type messageType = {
-  [key: string]: Array<{}>
+export type messageType = {
+  id: string
+  isMyMessage: boolean
+  text: string
+  date: string
 }
-type MessagesPageType = {
-  message: messageType
+export type messagesType = {
+  [key: string]: Array<messageType>
 }
-type FriendsPageType = {
+export type MessagesPageType = {
+  message: messagesType
+}
+export type FriendsPageType = {
   friends: Array<FriendType>
 }
 type CommunitiesPageType = {}
@@ -60,7 +68,14 @@ export type StateType = {
   friendsPage: FriendsPageType
   communitiesPage: CommunitiesPageType
   photoPage: PhotoPageType
+  getUser: (id: string) => FriendType
+  getUserId: (id: string) => string
 }
+
+const idAlekseyEterevskov = v1();
+const idElenaKilyanove = v1();
+const idAntonBorisenko = v1();
+const idOlegSobolev = v1();
 
 export const state: StateType = {
   mainPage: {
@@ -96,16 +111,62 @@ export const state: StateType = {
   newsPage: {},
   messagesPage: {
     message: {
-      [123]: [{}, {}, {}],
+      [idAlekseyEterevskov]: [
+        {
+          id: v1(), isMyMessage: true, text: 'Не поверишь патрюля завели', date: '22 сен',
+        },
+        {
+          id: v1(), isMyMessage: false, text: 'Да ладно? Вот это ничесе', date: '22 сен',
+        }, {
+          id: v1(), isMyMessage: true, text: 'Сам в шоке, ща видео скину', date: '22 сен',
+        }
+      ],
+      [idElenaKilyanove]: [
+        {
+          id: v1(), isMyMessage: false, text: 'Зайди в озон. Сейчас скину тебе код на whatsApp', date: '12 авг',
+        },
+        {
+          id: v1(), isMyMessage: true, text: 'Это что на озоне? Много там, я много не понесу!', date: '12 авг',
+        }, {
+          id: v1(), isMyMessage: false, text: 'Нет, не много', date: '12 авг',
+        }
+      ],
+      [idAntonBorisenko]: [
+        {
+          id: v1(), isMyMessage: false, text: 'Привет! На работе?', date: '20 июл',
+        },
+        {
+          id: v1(), isMyMessage: true, text: 'Здарова, да. Сейчас дымники доделываю и домой', date: '20 июл',
+        }, {
+          id: v1(), isMyMessage: false, text: 'Понял, будешь дома набирай!', date: '20 июл',
+        }
+      ],
+      [idOlegSobolev]: [
+        {
+          id: v1(), isMyMessage: false, text: 'Привет! Я скоро приеду, есть дело, замутим))', date: '1 июн',
+        },
+        {
+          id: v1(), isMyMessage: true, text: 'Давай приезжай, я в деле однозначно!', date: '1 июн',
+        }, {
+          id: v1(), isMyMessage: false, text: 'Отлично! Буду примерно весной!', date: '2 июн',
+        }
+      ],
     }
   },
   friendsPage: {
     friends: [
-      {id: v1(), name: 'Алексей Етеревсков', avatar: alekseyEterevskov, status: true},
-      {id: v1(), name: 'Елена Кильянова', avatar: elenaKilyanova, status: false},
-      {id: v1(), name: 'Антон Борисенко', avatar: olegSobolev, status: true},
+      {id: idAlekseyEterevskov, name: 'Алексей', surname: 'Етеревсков', avatar: alekseyEterevskov, status: true},
+      {id: idElenaKilyanove, name: 'Елена', surname: 'Кильянова', avatar: elenaKilyanova, status: false},
+      {id: idAntonBorisenko, name: 'Антон', surname: 'Борисенко', avatar: antonBorisenko, status: true},
+      {id: idOlegSobolev, name: 'Олег', surname: 'Соболев', avatar: olegSobolev, status: true},
     ],
   },
   communitiesPage: {},
-  photoPage: {}
+  photoPage: {},
+  getUser(name) {
+    return this.friendsPage.friends.filter(f => f.name === name)[0];
+  },
+  getUserId(name) {
+    return this.friendsPage.friends.filter(f => f.name === name)[0].id;
+  },
 }
