@@ -20,8 +20,10 @@ function App(props: PropsType) {
   return (
     <>
       <Header/>
-      <main className={`${s.main__content}`}>
+      <div className={`${s.main__content}`}>
         <SidebarLeft/>
+
+				{/* main content page */}
         <Routes>
           <Route path={'/'} element={<MainPage state={props.state}/>}/>
           <Route path={'/news'} element={<NewsPage/>}/>
@@ -31,7 +33,7 @@ function App(props: PropsType) {
           <Route path={'/photo'} element={<PhotoPage/>}/>
           <Route path={'/*'} element={<Error404/>}/>
         </Routes>
-      </main>
+      </div>
     </>
   );
 }

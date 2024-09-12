@@ -8,11 +8,11 @@ const Header = () => {
   return (
     <header className={s.header}>
       <div className={`${s.header__container}`}>
-        <a className={s.header__logo} href="https://vasilevich.blog">
+        <a className={s.header__logo} href="/">
           <div className={s.header__logoImg}>
             <img className={s.header__logoPhoto} src={logo} alt="Логотип блога" width="34" height="34"/>
           </div>
-          <span className={s.header__logoName}>vasilevich</span>
+          <span className={s.header__logoName}>vasilevich project</span>
         </a>
         <HeaderUser/>
       </div>

@@ -73,7 +73,7 @@ export type StateType = {
 }
 
 const idAlekseyEterevskov = v1();
-const idElenaKilyanove = v1();
+const idElenaKilyanova = v1();
 const idAntonBorisenko = v1();
 const idOlegSobolev = v1();
 
@@ -86,10 +86,10 @@ export const state: StateType = {
       avatarPhoto: avatarPhoto,
       avatarPhotoAlt: 'Аватарка пользователя',
       name: 'Станислав Василевич',
-      statusLink: 'https://vasilevich.blog',
-      statusText: `. Frontend developer. Stack:
-            HTML5, CSS3, JavaScript(ES-6), React, TDD, Vite,
-            GIT, NodeJS,WebPack, SASS, Gulp`,
+      statusLink: '', /* https://vasilevich.blog */
+      statusText: `Frontend developer. Stack:
+            HTML5, CSS3, JavaScript(ES-6), React, TDD, Vite, WebPack,
+            GIT, PHP8, слепая печать.`,
       pointMapIcon: pointMap,
       pointMapIconAlt: 'Иконка - точка на карте',
       town: 'Краснодар'
@@ -121,7 +121,7 @@ export const state: StateType = {
           id: v1(), isMyMessage: true, text: 'Сам в шоке, ща видео скину', date: '22 сен',
         }
       ],
-      [idElenaKilyanove]: [
+      [idElenaKilyanova]: [
         {
           id: v1(), isMyMessage: false, text: 'Зайди в озон. Сейчас скину тебе код на whatsApp', date: '12 авг',
         },
@@ -156,7 +156,7 @@ export const state: StateType = {
   friendsPage: {
     friends: [
       {id: idAlekseyEterevskov, name: 'Алексей', surname: 'Етеревсков', avatar: alekseyEterevskov, status: true},
-      {id: idElenaKilyanove, name: 'Елена', surname: 'Кильянова', avatar: elenaKilyanova, status: false},
+      {id: idElenaKilyanova, name: 'Елена', surname: 'Кильянова', avatar: elenaKilyanova, status: false},
       {id: idAntonBorisenko, name: 'Антон', surname: 'Борисенко', avatar: antonBorisenko, status: true},
       {id: idOlegSobolev, name: 'Олег', surname: 'Соболев', avatar: olegSobolev, status: true},
     ],

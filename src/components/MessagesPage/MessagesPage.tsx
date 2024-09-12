@@ -38,7 +38,7 @@ const data: Array<userType> = [
   {
     id: v1(),
     name: 'Алексей Етеревсков',
-    text: 'Куда скинуть бабок? На тинькоф или на сбер?',
+    text: 'Ну ты иде есть?',
     photo: two,
     alt: 'avatar two',
     date: '12 авг',
@@ -90,17 +90,18 @@ const MessagesPage = (props: PropsType) => {
         }
       </ul>
 
-      <div className={s.routes}>
-        {
-          props.stateFriends.friends.filter(f => {
-            return (
-            <Routes key={f.id}>
-              <Route path={`/${f.name}-${f.surname}`} element={<MessagePage/>}/>
-            </Routes>
-            )
-          })
-        }
-      </div>
+      {/*<div className={s.routes}>*/}
+      {/*  {*/}
+      {/*    props.stateFriends.friends.filter(f => {*/}
+      {/*      return (*/}
+			{/*				<div>hello</div>*/}
+      {/*      <Routes key={f.id}>*/}
+      {/*        <Route path={`/${f.name}-${f.surname}`} element={<MessagePage/>}/>*/}
+      {/*      </Routes>*/}
+      {/*      )*/}
+      {/*    })*/}
+      {/*  }*/}
+      {/*</div>*/}
     </div>
   );
 };
