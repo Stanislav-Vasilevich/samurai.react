@@ -20,6 +20,7 @@ export type UserBlockType = {
   pointMapIcon: string
   pointMapIconAlt: string
   town: string
+	link: string
 }
 type PostType = {
   id: string
@@ -92,7 +93,8 @@ export const state: StateType = {
             GIT, PHP8, слепая печать.`,
       pointMapIcon: pointMap,
       pointMapIconAlt: 'Иконка - точка на карте',
-      town: 'Краснодар'
+      town: 'Волгоградская область, ст-ца Арчединская',
+			link: 'https://yandex.ru/maps/-/CDHhi4ZO',
     },
     posts: [
       {

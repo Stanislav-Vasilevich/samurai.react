@@ -26,7 +26,7 @@ const UserBlock = (props: PropsType) => {
           </div>
           <div className={s.user__map}>
             <img className={s.user__mapIcon} src={props.userBlock.pointMapIcon} alt={props.userBlock.pointMapIconAlt}/>
-            <a className={s.user__mapText} href="#">{props.userBlock.town}</a>
+            <a className={s.user__mapText} href={props.userBlock.link} target="_blank">{props.userBlock.town}</a>
           </div>
         </div>
       </div>
