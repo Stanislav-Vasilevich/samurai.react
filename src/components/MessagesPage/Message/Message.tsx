@@ -1,31 +1,12 @@
 import React from 'react';
-import s from '../MessagesPage.module.css';
-import {NavLink} from 'react-router-dom';
-import {messageType} from '../../../redux/state';
+import s from './Message.module.css';
 
-type PropsType = {
-  id: string
-  avatar: string
-  name: string
-  surname: string
-  text: Array<messageType>
+const Message = () => {
+	return (
+		<div className={s.mainContent}>
+			hello
+		</div>
+	)
 }
-
-const Message = (props: PropsType) => {
-  return (
-    <li className={s.message}>
-      <NavLink className={s.link} to={`${props.name}-${props.surname}`}>
-        <div className={s.img}>
-          <img className={s.avatar} src={props.avatar} alt={`${props.name} ${props.surname}`}/>
-        </div>
-        <div className={s.body}>
-          <h2 className={s.name}>{props.name}</h2>
-          <div className={s.text}>{props.text[props.text.length - 1].text}</div>
-          <div className={s.date}>{props.text[props.text.length - 1].date}</div>
-        </div>
-      </NavLink>
-    </li>
-  );
-};
 
 export default Message;

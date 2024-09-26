@@ -4,13 +4,13 @@ import Header from './components/Header/Header';
 import SidebarLeft from './components/Sidebar/SidebarLeft/SidebarLeft';
 import MessagesPage from './components/MessagesPage/MessagesPage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
-import Communities from './components/CommunitiesPage/CommunitiesPage';
 import PhotoPage from './components/PhotoPage/PhotoPage';
 import {Route, Routes} from 'react-router-dom';
-import MainPage from './components/MyPage/MyPage';
 import NewsPage from './components/NewsPage/NewsPage';
-import Error404 from './components/ErrorPage404/ErrorPage404';
+import Error404Page from './components/ErrorPage404/ErrorPage404';
 import {StateType} from "./redux/state";
+import MyPage from "./components/MyPage/MyPage";
+import CommunitiesPage from "./components/CommunitiesPage/CommunitiesPage";
 
 type PropsType = {
 	state: StateType
@@ -21,15 +21,15 @@ function App(props: PropsType) {
     <>
       <Header/>
       <div className={`${s.content}`}>
-        <SidebarLeft/>
+        <SidebarLeft links={props.state.sideBar.links}/>
         <Routes>
-          <Route path={'/'} element={<MainPage state={props.state}/>}/>
-          <Route path={'/news'} element={<NewsPage/>}/>
-          <Route path={'/messages'} element={<MessagesPage stateFriends={props.state.friendsPage} stateMessage={props.state.messagesPage}/>}/>
-          <Route path={'/friends'} element={<FriendsPage/>}/>
-          <Route path={'/communities'} element={<Communities/>}/>
-          <Route path={'/photo'} element={<PhotoPage/>}/>
-          <Route path={'/*'} element={<Error404/>}/>
+          <Route path='/' element={<MyPage state={props.state}/>}/>
+          <Route path='/news' element={<NewsPage/>}/>
+          <Route path='/messages' element={<MessagesPage stateFriends={props.state.friendsPage} stateMessage={props.state.messagesPage}/>}/>
+          <Route path='/friends' element={<FriendsPage state={props.state.friendsPage}/>}/>
+          <Route path='/communities' element={<CommunitiesPage/>}/>
+          <Route path='/photo' element={<PhotoPage/>}/>
+          <Route path='/*' element={<Error404Page/>}/>
         </Routes>
       </div>
     </>

@@ -1,10 +1,3 @@
-.mainContent {
-  width: calc(100% - 164px);
-  border-radius: 12px;
-	flex-basis: 550px;
-	flex-grow: 1;
-}
-
 .mainContentAndRightSidebar {
 	display: flex;
 	gap: 20px;

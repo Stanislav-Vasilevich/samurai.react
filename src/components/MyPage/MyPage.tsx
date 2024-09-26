@@ -11,11 +11,11 @@ type PropsType = {
 
 const MyPage = (props: PropsType) => {
 	return (
-		<main className={s.mainContent}>
-			<UserBlock userBlock={props.state.mainPage.userBlock}/>
+		<main>
+			<UserBlock userBlock={props.state.homePage.userBlock}/>
 			<div className={s.mainContentAndRightSidebar}>
 				<div className={s.mainContent}>
-					{props.state.mainPage.posts.map(t => {
+					{props.state.homePage.posts.map(t => {
 						return (
 							<Post
 								key={t.id}

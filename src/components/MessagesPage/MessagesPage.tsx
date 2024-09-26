@@ -1,16 +1,16 @@
 import React from 'react';
 import s from './MessagesPage.module.css';
 import {v1} from 'uuid';
-import Message from './Message/Message';
-import one from './Message/one.jpg';
-import two from './Message/two.jpg';
-import three from './Message/three.jpg';
-import four from './Message/four.jpg';
-import five from './Message/five.jpg';
-import six from './Message/six.jpg';
+import MessagesList from './MessagesList/MessagesList';
+import one from './MessagesList/one.jpg';
+import two from './MessagesList/two.jpg';
+import three from './MessagesList/three.jpg';
+import four from './MessagesList/four.jpg';
+import five from './MessagesList/five.jpg';
+import six from './MessagesList/six.jpg';
 import {FriendsPageType, MessagesPageType} from '../../redux/state';
 import {Route, Routes} from 'react-router-dom';
-import MessagePage from './Message/MessagePage/MessagePage';
+import Message from './Message/Message';
 
 type PropsType = {
   stateFriends: FriendsPageType
@@ -78,25 +78,27 @@ const data: Array<userType> = [
 ]
 
 const MessagesPage = (props: PropsType) => {
+	console.log(props.stateFriends.friends)
+
   return (
-    <main className={s.mainContent}>
-      <ul className={s.list}>
+    <main>
+			{/* здесь должна загрузиться либо MessagesList, либо Message */}
+      <ul className="wrapper">
         {
           props.stateFriends.friends.map(i => {
             return (
-              <Message key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname} text={props.stateMessage.message[i.id]}/>
+              <MessagesList key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname} text={props.stateMessage.message[i.id]}/>
             )
           })
         }
       </ul>
 
-      {/*<div className={s.routes}>*/}
+      {/*<div>*/}
       {/*  {*/}
       {/*    props.stateFriends.friends.filter(f => {*/}
       {/*      return (*/}
-			{/*				<div>hello</div>*/}
       {/*      <Routes key={f.id}>*/}
-      {/*        <Route path={`/${f.name}-${f.surname}`} element={<MessagePage/>}/>*/}
+      {/*        <Route path={`/${f.name}-${f.surname}`} element={<Message/>}/>*/}
       {/*      </Routes>*/}
       {/*      )*/}
       {/*    })*/}

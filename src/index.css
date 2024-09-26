@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -21,4 +25,12 @@ div, p, a, span {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.wrapper {
+	width: 550px;
+	background: white;
+	border-radius: 12px;
+	padding: 16px 20px;
+	margin: 0;
 }

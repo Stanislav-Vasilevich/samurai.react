@@ -7,6 +7,12 @@ import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-
 import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
 import antonBorisenko from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
 import olegSobolev from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
+import iconMyPage from "../components/Sidebar/SidebarLeft/icons/myPage.svg";
+import iconNews from "../components/Sidebar/SidebarLeft/icons/news.svg";
+import messages from "../components/Sidebar/SidebarLeft/icons/messages.svg";
+import friends from "../components/Sidebar/SidebarLeft/icons/friends.svg";
+import communities from "../components/Sidebar/SidebarLeft/icons/communities.svg";
+import photo from "../components/Sidebar/SidebarLeft/icons/photo.svg";
 
 export type UserBlockType = {
   id: string
@@ -41,7 +47,7 @@ export type FriendType = {
   avatar: string
   status: boolean
 }
-export type MainPageType = {
+export type HomePageType = {
   userBlock: UserBlockType
   posts: Array<PostType>
 }
@@ -63,13 +69,24 @@ export type FriendsPageType = {
 }
 type CommunitiesPageType = {}
 type PhotoPageType = {}
+export type SideBarLinkType = {
+	id: string
+	path: string
+	src: string
+	alt: string
+	text: string
+}
+type SideBarType = {
+	links: Array<SideBarLinkType>
+}
 export type StateType = {
-  mainPage: MainPageType
+  homePage: HomePageType
   newsPage: NewsPageType
   messagesPage: MessagesPageType
   friendsPage: FriendsPageType
   communitiesPage: CommunitiesPageType
   photoPage: PhotoPageType
+	sideBar: SideBarType
   getUser: (id: string) => FriendType
   getUserId: (id: string) => string
 }
@@ -80,7 +97,7 @@ const idAntonBorisenko = v1();
 const idOlegSobolev = v1();
 
 export const state: StateType = {
-  mainPage: {
+  homePage: {
     userBlock: {
       id: v1(),
       backgroundPhoto: backgroundPhoto,
@@ -116,44 +133,24 @@ export const state: StateType = {
   messagesPage: {
     message: {
       [idAlekseyEterevskov]: [
-        {
-          id: v1(), isMyMessage: true, text: 'Не поверишь патрюля завели', date: '22 сен',
-        },
-        {
-          id: v1(), isMyMessage: false, text: 'Да ладно? Вот это ничесе', date: '22 сен',
-        }, {
-          id: v1(), isMyMessage: true, text: 'Сам в шоке, ща видео скину', date: '22 сен',
-        }
+        {id: v1(), isMyMessage: true, text: 'Не поверишь патрюля завели', date: '22 сен'},
+        {id: v1(), isMyMessage: false, text: 'Да ладно? Вот это ничесе', date: '22 сен'},
+				{id: v1(), isMyMessage: true, text: 'Сам в шоке, ща видео скину', date: '22 сен'}
       ],
       [idElenaKilyanova]: [
-        {
-          id: v1(), isMyMessage: false, text: 'Зайди в озон. Сейчас скину тебе код на whatsApp', date: '12 авг',
-        },
-        {
-          id: v1(), isMyMessage: true, text: 'Это что на озоне? Много там, я много не понесу!', date: '12 авг',
-        }, {
-          id: v1(), isMyMessage: false, text: 'Нет, не много', date: '12 авг',
-        }
+        {id: v1(), isMyMessage: false, text: 'Зайди в озон. Сейчас скину тебе код на whatsApp', date: '12 авг'},
+        {id: v1(), isMyMessage: true, text: 'Это что на озоне? Много там, я много не понесу!', date: '12 авг'},
+				{id: v1(), isMyMessage: false, text: 'Нет, не много', date: '12 авг'}
       ],
       [idAntonBorisenko]: [
-        {
-          id: v1(), isMyMessage: false, text: 'Привет! На работе?', date: '20 июл',
-        },
-        {
-          id: v1(), isMyMessage: true, text: 'Здарова, да. Сейчас дымники доделываю и домой', date: '20 июл',
-        }, {
-          id: v1(), isMyMessage: false, text: 'Понял, будешь дома набирай!', date: '20 июл',
-        }
+        {id: v1(), isMyMessage: false, text: 'Привет! На работе?', date: '20 июл'},
+        {id: v1(), isMyMessage: true, text: 'Здарова, да. Сейчас дымники доделываю и домой', date: '20 июл'},
+				{id: v1(), isMyMessage: false, text: 'Понял, будешь дома набирай!', date: '20 июл'}
       ],
       [idOlegSobolev]: [
-        {
-          id: v1(), isMyMessage: false, text: 'Привет! Я скоро приеду, есть дело, замутим))', date: '1 июн',
-        },
-        {
-          id: v1(), isMyMessage: true, text: 'Давай приезжай, я в деле однозначно!', date: '1 июн',
-        }, {
-          id: v1(), isMyMessage: false, text: 'Отлично! Буду примерно весной!', date: '2 июн',
-        }
+        {id: v1(), isMyMessage: false, text: 'Привет! Я скоро приеду, есть дело, замутим))', date: '1 июн'},
+        {id: v1(), isMyMessage: true, text: 'Давай приезжай, я в деле однозначно!', date: '1 июн'},
+				{id: v1(), isMyMessage: false, text: 'Отлично! Буду примерно весной!', date: '2 июн'}
       ],
     }
   },
@@ -167,6 +164,52 @@ export const state: StateType = {
   },
   communitiesPage: {},
   photoPage: {},
+	sideBar: {
+		links: [
+			{
+				id: v1(),
+				path: '/',
+				src: iconMyPage,
+				alt: 'User',
+				text: 'Моя страница'
+			},
+			{
+				id: v1(),
+				path: '/news',
+				src: iconNews,
+				alt: 'News',
+				text: 'Новости'
+			},
+			{
+				id: v1(),
+				path: '/messages',
+				src: messages,
+				alt: 'Messages',
+				text: 'Сообщения'
+			},
+			{
+				id: v1(),
+				path: '/friends',
+				src: friends,
+				alt: 'Friends',
+				text: 'Друзья'
+			},
+			{
+				id: v1(),
+				path: '/communities',
+				src: communities,
+				alt: 'CommunitiesPage',
+				text: 'Сообщества'
+			},
+			{
+				id: v1(),
+				path: '/photo',
+				src: photo,
+				alt: 'Photo',
+				text: 'Фотографии'
+			},
+		]
+	},
   getUser(name) {
     return this.friendsPage.friends.filter(f => f.name === name)[0];
   },
