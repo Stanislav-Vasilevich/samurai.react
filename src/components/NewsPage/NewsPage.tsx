@@ -2,9 +2,9 @@ import React from 'react';
 
 const NewsPage = () => {
   return (
-    <div>
+    <main>
       news page
-    </div>
+    </main>
   );
 };
 

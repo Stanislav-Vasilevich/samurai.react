@@ -2,9 +2,9 @@ import React from 'react';
 
 const FriendsPage = () => {
   return (
-    <div>
+    <main>
       friends page
-    </div>
+    </main>
   );
 };
 

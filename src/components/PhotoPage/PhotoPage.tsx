@@ -2,9 +2,9 @@ import React from 'react';
 
 const PhotoPage = () => {
   return (
-    <div>
+    <main>
       photo page
-    </div>
+    </main>
   );
 };
 

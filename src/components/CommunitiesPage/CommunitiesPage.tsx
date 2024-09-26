@@ -2,9 +2,9 @@ import React from 'react';
 
 const CommunitiesPage = () => {
   return (
-    <div>
+    <main>
       communities page
-    </div>
+    </main>
   );
 };
 

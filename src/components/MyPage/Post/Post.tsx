@@ -7,6 +7,7 @@ type PropsType = {
 	avatarPhotoAlt: string
 	name: string
 	date: string
+	title: string
 	text: string
 	photo: string
 	photoAlt: string
@@ -15,7 +16,7 @@ type PropsType = {
 
 const Post = (props: PropsType) => {
 	return (
-		<div className={s.post}>
+		<article className={s.post}>
 			<header className={s.post__header}>
 				<div className={s.post__avatar}>
 					<img className={s.post__avatarPhoto} src={props.avatarPhoto} alt={props.avatarPhotoAlt}/>
@@ -30,13 +31,14 @@ const Post = (props: PropsType) => {
 					<span className={s.post__changePoint}></span>
 				</div>
 			</header>
-			<main className={s.body}>
+			<div className={s.post__body}>
+				<h2 className={s.post__title}>{props.title}</h2>
 				<p className={s.post__text}>{props.text}</p>
 				<div className={s.post__img}>
 					<img className={s.post__photo} src={props.photo}
 							 alt={props.photoAlt}/>
 				</div>
-			</main>
+			</div>
 			<footer className={s.post__footer}>
 				<div className={s.post__likes}>
 					<div className={s.post__icon}>
@@ -45,7 +47,7 @@ const Post = (props: PropsType) => {
 					<div className={s.post__likesCount}>{props.likesCount}</div>
 				</div>
 			</footer>
-		</div>
+		</article>
 	);
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './MainPage.module.css';
-import UserBlock from './UserBlock/UserBlock';
+import s from './MyPage.module.css';
+import UserBlock from './User/User';
 import Post from "./Post/Post";
 import SidebarRight from "../Sidebar/SidebarRight/SidebarRight";
 import {StateType} from '../../redux/state';
@@ -9,9 +9,9 @@ type PropsType = {
 	state: StateType
 }
 
-const MainPage = (props: PropsType) => {
+const MyPage = (props: PropsType) => {
 	return (
-		<div className={s.mainContent}>
+		<main className={s.mainContent}>
 			<UserBlock userBlock={props.state.mainPage.userBlock}/>
 			<div className={s.mainContentAndRightSidebar}>
 				<div className={s.mainContent}>
@@ -23,6 +23,7 @@ const MainPage = (props: PropsType) => {
 								avatarPhotoAlt={t.avatarPhotoAlt}
 								name={t.name}
 								date={t.date}
+								title={t.title}
 								text={t.text}
 								photo={t.photo}
 								photoAlt={t.photoAlt}
@@ -33,8 +34,8 @@ const MainPage = (props: PropsType) => {
 				</div>
 				<SidebarRight state={props.state.friendsPage.friends}/>
 			</div>
-		</div>
+		</main>
 	);
 };
 
-export default MainPage;
+export default MyPage;

@@ -1,9 +1,6 @@
 .mainContent {
   width: calc(100% - 164px);
   border-radius: 12px;
-}
-
-.mainContent {
 	flex-basis: 550px;
 	flex-grow: 1;
 }

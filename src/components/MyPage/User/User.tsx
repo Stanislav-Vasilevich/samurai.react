@@ -1,14 +1,14 @@
 import React from 'react';
-import s from './UserBlock.module.css';
+import s from './User.module.css';
 import {UserBlockType} from "../../../redux/state";
 
 type PropsType = {
 	userBlock: UserBlockType
 }
 
-const UserBlock = (props: PropsType) => {
+const User = (props: PropsType) => {
   return (
-    <div className={s.user__block}>
+    <div className={s.user}>
       <div className={s.user__background}>
         <img className={s.user__photo} src={props.userBlock.backgroundPhoto} alt={props.userBlock.backgroundPhotoAlt}/>
       </div>
@@ -34,4 +34,4 @@ const UserBlock = (props: PropsType) => {
   );
 };
 
-export default UserBlock;
+export default User;

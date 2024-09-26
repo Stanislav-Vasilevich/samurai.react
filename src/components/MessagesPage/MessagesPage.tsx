@@ -79,7 +79,7 @@ const data: Array<userType> = [
 
 const MessagesPage = (props: PropsType) => {
   return (
-    <div className={s.mainContent}>
+    <main className={s.mainContent}>
       <ul className={s.list}>
         {
           props.stateFriends.friends.map(i => {
@@ -102,7 +102,7 @@ const MessagesPage = (props: PropsType) => {
       {/*    })*/}
       {/*  }*/}
       {/*</div>*/}
-    </div>
+    </main>
   );
 };
 

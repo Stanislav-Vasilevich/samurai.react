@@ -2,7 +2,7 @@ import pointMap from './../../src/img/page/main/user-block/point-map.svg';
 import backgroundPhoto from './../../src/img/page/main/user-block/mainPhoto.png';
 import avatarPhoto from './../../src/img/page/main/user-block/avatar.webp';
 import {v1} from 'uuid';
-import photoPost from './../components/MainPage/Post/my-photo.webp';
+import photoPost from '../components/MyPage/Post/my-photo.webp';
 import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
 import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
 import antonBorisenko from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
@@ -28,6 +28,7 @@ type PostType = {
   avatarPhotoAlt: string
   name: string
   date: string
+	title: string
   text: string
   photo: string
   photoAlt: string
@@ -103,9 +104,10 @@ export const state: StateType = {
         avatarPhotoAlt: 'Аватарка пользователя',
         name: 'Станислав Василевич',
         date: '20 августа в 11:48',
-        text: 'Жизнь это код, а код это кайф))',
+				title: 'Нужен код!',
+        text: 'Привет! Как Вы там, по ту сторону экрана? Вот сижу я и думаю, может стоит взяться за что-то интересное, серьёзное, написать какой-нибудь большуший проект? Нужен код! Да и плевать что и кто скажет, главное чтобы самому было интересно! Вступить, так сказать в марафон, поймать волну. Ну ок! А что сделать? Ведь нужно что-то .., ну вы поняли. С таким видом из окна куча идей лезет в голову, остается только выбрать нужную картинку. Да уж, Питер дает вдохновение не только Пушкину и Блоку. Нужно прогуляться, посетить набережную "Мойки", Дворцовую площадь, постоять в очереди в знаменитую "Пышечную", в общем подумать!',
         photo: photoPost,
-        photoAlt: 'Пишу код в гамаке посреди сада абрикосов',
+        photoAlt: 'Нужен код!',
         likesCount: 5,
       },
     ],

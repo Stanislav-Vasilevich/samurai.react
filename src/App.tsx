@@ -7,7 +7,7 @@ import FriendsPage from './components/FriendsPage/FriendsPage';
 import Communities from './components/CommunitiesPage/CommunitiesPage';
 import PhotoPage from './components/PhotoPage/PhotoPage';
 import {Route, Routes} from 'react-router-dom';
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './components/MyPage/MyPage';
 import NewsPage from './components/NewsPage/NewsPage';
 import Error404 from './components/ErrorPage404/ErrorPage404';
 import {StateType} from "./redux/state";
@@ -20,10 +20,8 @@ function App(props: PropsType) {
   return (
     <>
       <Header/>
-      <div className={`${s.main__content}`}>
+      <div className={`${s.content}`}>
         <SidebarLeft/>
-
-				{/* main content page */}
         <Routes>
           <Route path={'/'} element={<MainPage state={props.state}/>}/>
           <Route path={'/news'} element={<NewsPage/>}/>
