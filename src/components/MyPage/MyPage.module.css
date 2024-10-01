@@ -1,5 +1,5 @@
 .mainContentAndRightSidebar {
 	display: flex;
 	gap: 20px;
+	margin: 0 0 20px;
 }
-

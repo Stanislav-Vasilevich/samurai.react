@@ -16,7 +16,7 @@ type PropsType = {
 
 const Post = (props: PropsType) => {
 	return (
-		<article className="wrapper">
+		<article className={`wrapper ${s.post}`}>
 			<header className={s.post__header}>
 				<div className={s.post__avatar}>
 					<img className={s.post__avatarPhoto} src={props.avatarPhoto} alt={props.avatarPhotoAlt}/>

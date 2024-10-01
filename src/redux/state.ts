@@ -1,6 +1,7 @@
 import pointMap from './../../src/img/page/main/user-block/point-map.svg';
 import backgroundPhoto from './../../src/img/page/main/user-block/mainPhoto.png';
 import avatarPhoto from './../../src/img/page/main/user-block/avatar.webp';
+import avatarPhoto2 from './../../src/components/MyPage/Post/travel.webp';
 import {v1} from 'uuid';
 import photoPost from '../components/MyPage/Post/my-photo.webp';
 import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
@@ -127,6 +128,18 @@ export const state: StateType = {
         photoAlt: 'Нужен код!',
         likesCount: 5,
       },
+			{
+				id: v1(),
+				avatarPhoto: avatarPhoto,
+				avatarPhotoAlt: 'Аватарка пользователя',
+				name: 'Станислав Василевич',
+				date: '28 сентября в 10:00',
+				title: 'Привет Мир!',
+				text: 'Какой-то там текст!',
+				photo: avatarPhoto2,
+				photoAlt: 'Нужен код!',
+				likesCount: 5,
+			},
     ],
   },
   newsPage: {},

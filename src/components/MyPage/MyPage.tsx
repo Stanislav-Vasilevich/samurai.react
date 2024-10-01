@@ -14,7 +14,7 @@ const MyPage = (props: PropsType) => {
 		<main>
 			<UserBlock userBlock={props.state.homePage.userBlock}/>
 			<div className={s.mainContentAndRightSidebar}>
-				<div className={s.mainContent}>
+				<div className={s.posts}>
 					{props.state.homePage.posts.map(t => {
 						return (
 							<Post
