@@ -30,7 +30,7 @@ const FriendsFeed = (props: PropsType) => {
 
               return (
                 <li className={s.friendsListItem} key={f.id}>
-                  <NavLink className={s.link} to={f.id}>
+                  <NavLink className={s.link} to={String(f.id)}>
                     <figure className={s.figure}>
                       <div className={s.img}>
                         <img className={s.photo} src={f.avatar} alt={f.name}/>
@@ -49,7 +49,7 @@ const FriendsFeed = (props: PropsType) => {
 
               return (
                 <li className={s.friendsListItem} key={f.id}>
-                  <NavLink className={s.link} to={f.id}>
+                  <NavLink className={s.link} to={String(f.id)}>
                     <figure className={s.figure}>
                       <div className={s.img}>
                         <img className={s.photo} src={f.avatar} alt={f.name}/>

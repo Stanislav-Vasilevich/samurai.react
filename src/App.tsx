@@ -11,6 +11,7 @@ import Error404Page from './components/ErrorPage404/ErrorPage404';
 import {StateType} from "./redux/state";
 import MyPage from "./components/MyPage/MyPage";
 import CommunitiesPage from "./components/CommunitiesPage/CommunitiesPage";
+import SidebarRightBox from './components/Sidebar/SidebarRight/SidebarRightBox/SidebarRightBox';
 
 type PropsType = {
 	state: StateType

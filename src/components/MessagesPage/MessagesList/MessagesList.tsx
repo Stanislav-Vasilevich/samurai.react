@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import {messageType} from '../../../redux/state';
 
 type PropsType = {
-  id: string
+  id: number
   avatar: string
   name: string
   surname: string

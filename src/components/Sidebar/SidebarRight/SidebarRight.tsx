@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './SidebarRight.module.css';
 import {FriendType} from "../../../redux/state";
-import {NavLink} from "react-router-dom";
 import SidebarRightBox from "./SidebarRightBox/SidebarRightBox";
 
 type PropsType = {
