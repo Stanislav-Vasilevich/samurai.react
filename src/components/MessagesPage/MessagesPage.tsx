@@ -13,8 +13,8 @@ import {Route, Routes} from 'react-router-dom';
 import Message from './Message/Message';
 
 type PropsType = {
-  stateFriends: FriendsPageType
-  stateMessage: MessagesPageType
+  friendsPage: FriendsPageType
+  messagePage: MessagesPageType
 }
 
 export type userType = {
@@ -78,32 +78,46 @@ const data: Array<userType> = [
 ]
 
 const MessagesPage = (props: PropsType) => {
-	console.log(props.stateFriends.friends)
-
   return (
     <main>
-			{/* здесь должна загрузиться либо MessagesList, либо Message */}
-      <ul className="wrapper">
-        {
-          props.stateFriends.friends.map(i => {
-            return (
-              <MessagesList key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname} text={props.stateMessage.message[i.id]}/>
-            )
-          })
-        }
-      </ul>
+      {/* здесь должна загрузиться либо MessagesList, либо Message */}
+      <Routes>
+        <Route path='/' element={
+          <ul className="wrapper">
+            {
+              props.friendsPage.friends.map(i => {
+                return (
+                  <MessagesList key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname}
+                                text={props.messagePage.message[i.id]}/>
+                )
+              })
+            }
+          </ul>
+        }/>
+        {/*<Route path='/' element={}/>*/}
 
-      {/*<div>*/}
-      {/*  {*/}
-      {/*    props.stateFriends.friends.filter(f => {*/}
-      {/*      return (*/}
-      {/*      <Routes key={f.id}>*/}
-      {/*        <Route path={`/${f.name}-${f.surname}`} element={<Message/>}/>*/}
-      {/*      </Routes>*/}
-      {/*      )*/}
-      {/*    })*/}
-      {/*  }*/}
-      {/*</div>*/}
+        <Route path={
+          props.messagePage.message[]
+        } element={
+          {
+            props.friend.friends.filter(f => {
+              return <Message/>
+            })
+          }}
+        }>
+
+        {/*<div>*/}
+        {/*  {*/}
+        {/*    props.stateFriends.friends.filter(f => {*/}
+        {/*      return (*/}
+        {/*      <Routes*/}
+        {/*        <Route path={`/${f.name}-${f.surname}`} element={<Message/>}/>*/}
+        {/*      </Routes>*/}
+        {/*      )*/}
+        {/*    })*/}
+        {/*  }*/}
+        {/*</div>*/}
+      </Routes>
     </main>
   );
 };

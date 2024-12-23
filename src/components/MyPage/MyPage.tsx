@@ -3,19 +3,20 @@ import s from './MyPage.module.css';
 import UserBlock from './User/User';
 import Post from "./Post/Post";
 import SidebarRight from "../Sidebar/SidebarRight/SidebarRight";
-import {StateType} from '../../redux/state';
+import {FriendsPageType, HomePageType, StateType} from '../../redux/state';
 
 type PropsType = {
-	state: StateType
+	mainContent: HomePageType
+	sidebarRight: FriendsPageType
 }
 
 const MyPage = (props: PropsType) => {
 	return (
 		<main>
-			<UserBlock userBlock={props.state.homePage.userBlock}/>
+			<UserBlock userBlock={props.mainContent.userBlock}/>
 			<div className={s.mainContentAndRightSidebar}>
 				<div className={s.posts}>
-					{props.state.homePage.posts.map(t => {
+					{props.mainContent.posts.map(t => {
 						return (
 							<Post
 								key={t.id}
@@ -32,7 +33,7 @@ const MyPage = (props: PropsType) => {
 						)
 					})}
 				</div>
-				<SidebarRight state={props.state.friendsPage.friends}/>
+				<SidebarRight sidebarRight={props.sidebarRight.friends}/>
 			</div>
 		</main>
 	);

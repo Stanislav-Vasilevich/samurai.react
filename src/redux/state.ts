@@ -51,7 +51,9 @@ export type HomePageType = {
   userBlock: UserBlockType
   posts: Array<PostType>
 }
-type NewsPageType = {}
+export type NewsPageType = {
+  posts: Array<PostType>
+}
 export type messageType = {
   id: number
   isMyMessage: boolean
@@ -141,7 +143,34 @@ export const state: StateType = {
 			},
     ],
   },
-  newsPage: {},
+  newsPage: {
+    posts: [
+      {
+        id: 1,
+        avatarPhoto: avatarPhoto,
+        avatarPhotoAlt: 'Аватарка пользователя',
+        name: 'Станислав Василевич',
+        date: '22 декабря в 16:01',
+        title: 'Сегодня я узнал, что моя бабушка жива!',
+        text: 'С тех пор как я последний раз видел свою бабушку прошло уже 32 года. Я потерял все надежды на поиски, но внезапно я наткнулся на фото отца, написал ему и он сообщил, что моя бабушка еще жива. Я незамедлительно написал о встрече!',
+        photo: '',
+        photoAlt: 'Встреча с бабушкой',
+        likesCount: 2,
+      },
+      {
+        id: 2,
+        avatarPhoto: avatarPhoto,
+        avatarPhotoAlt: 'Аватарка пользователя',
+        name: 'Станислав Василевич',
+        date: '23 декабря в 10:00',
+        title: 'Поднял 65кг на грудь',
+        text: 'Сегодня на тренировке я поднял 65кг штангу на грудь первый подход без веса, далее добавил 20кг и сделал 12 повторений, далее еще 10кг на 12 повторений и после этого добавил еще 10кг, в итоге получилось 60кг, сделал 8 повторений. После этого тренер сказал добавить еще 5кг и я сделал 3 подхода по 8 повторений.',
+        photo: '',
+        photoAlt: 'Жим штанги лежа',
+        likesCount: 125,
+      },
+    ]
+  },
   messagesPage: {
     message: {
       [idAlekseyEterevskov]: [

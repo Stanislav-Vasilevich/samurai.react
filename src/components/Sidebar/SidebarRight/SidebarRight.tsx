@@ -4,13 +4,15 @@ import {FriendType} from "../../../redux/state";
 import SidebarRightBox from "./SidebarRightBox/SidebarRightBox";
 
 type PropsType = {
-	state: Array<FriendType>
+	sidebarRight: Array<FriendType>
 }
 
 const SidebarRight = (props: PropsType) => {
+	console.log('props: ', props);
+
 	return (
 		<div className={s.sidebarRight}>
-			<SidebarRightBox state={props.state}/>
+			<SidebarRightBox sidebarRight={props.sidebarRight}/>
 		</div>
 	);
 };

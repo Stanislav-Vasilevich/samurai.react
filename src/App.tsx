@@ -11,7 +11,6 @@ import Error404Page from './components/ErrorPage404/ErrorPage404';
 import {StateType} from "./redux/state";
 import MyPage from "./components/MyPage/MyPage";
 import CommunitiesPage from "./components/CommunitiesPage/CommunitiesPage";
-import SidebarRightBox from './components/Sidebar/SidebarRight/SidebarRightBox/SidebarRightBox';
 
 type PropsType = {
 	state: StateType
@@ -24,9 +23,9 @@ function App(props: PropsType) {
       <div className={`${s.content}`}>
         <SidebarLeft links={props.state.sideBar.links}/>
         <Routes>
-          <Route path='/' element={<MyPage state={props.state}/>}/>
-          <Route path='/news' element={<NewsPage/>}/>
-          <Route path='/messages' element={<MessagesPage stateFriends={props.state.friendsPage} stateMessage={props.state.messagesPage}/>}/>
+          <Route path='/' element={<MyPage mainContent={props.state.homePage} sidebarRight={props.state.friendsPage}/>}/>
+          <Route path='/news' element={<NewsPage mainContent={props.state.newsPage} sidebarRight={props.state.friendsPage}/>}/>
+          <Route path='/messages' element={<MessagesPage friendsPage={props.state.friendsPage} messagePage={props.state.messagesPage}/>}/>
           <Route path='/friends' element={<FriendsPage state={props.state.friendsPage}/>}/>
           <Route path='/communities' element={<CommunitiesPage/>}/>
           <Route path='/photo' element={<PhotoPage/>}/>
