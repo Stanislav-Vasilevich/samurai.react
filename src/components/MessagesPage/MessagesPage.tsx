@@ -13,113 +13,95 @@ import {Route, Routes} from 'react-router-dom';
 import Message from './Message/Message';
 
 type PropsType = {
-  friendsPage: FriendsPageType
-  messagePage: MessagesPageType
+	friendsPage: FriendsPageType
+	messagePage: MessagesPageType
 }
 
 export type userType = {
-  id: string
-  name: string
-  text: string
-  photo: string
-  alt: string
-  date: string
+	id: string
+	name: string
+	text: string
+	photo: string
+	alt: string
+	date: string
 }
 
 const data: Array<userType> = [
-  {
-    id: v1(),
-    name: 'Олег Соболев',
-    text: 'Давай приезжай, я в деле однозначно!',
-    photo: one,
-    alt: 'avatar one',
-    date: '22 сен',
-  },
-  {
-    id: v1(),
-    name: 'Алексей Етеревсков',
-    text: 'Ну ты иде есть?',
-    photo: two,
-    alt: 'avatar two',
-    date: '12 авг',
-  },
-  {
-    id: v1(),
-    name: 'Антон Борисенко',
-    text: 'Можешь создать сайт, где все мне платят на карту?',
-    photo: three,
-    alt: 'avatar two',
-    date: '20 июл',
-  },
-  {
-    id: v1(),
-    name: 'Вирса Петровна',
-    text: 'Мяу мяу мяу. Мяу мяу мяу мяу мяу мяу мяу!',
-    photo: four,
-    alt: 'avatar two',
-    date: '1 июн',
-  },
-  {
-    id: v1(),
-    name: 'Игорь Юдинцев',
-    text: 'Я в отпуске, как приду будем потеть!',
-    photo: five,
-    alt: 'avatar two',
-    date: '1 июн',
-  },
-  {
-    id: v1(),
-    name: 'Елена Кильянова',
-    text: 'Это что на озоне? Много там, я много не понесу!',
-    photo: six,
-    alt: 'avatar two',
-    date: '18 апр',
-  },
+	{
+		id: v1(),
+		name: 'Олег Соболев',
+		text: 'Давай приезжай, я в деле однозначно!',
+		photo: one,
+		alt: 'avatar one',
+		date: '22 сен',
+	},
+	{
+		id: v1(),
+		name: 'Алексей Етеревсков',
+		text: 'Ну ты иде есть?',
+		photo: two,
+		alt: 'avatar two',
+		date: '12 авг',
+	},
+	{
+		id: v1(),
+		name: 'Антон Борисенко',
+		text: 'Можешь создать сайт, где все мне платят на карту?',
+		photo: three,
+		alt: 'avatar two',
+		date: '20 июл',
+	},
+	{
+		id: v1(),
+		name: 'Вирса Петровна',
+		text: 'Мяу мяу мяу. Мяу мяу мяу мяу мяу мяу мяу!',
+		photo: four,
+		alt: 'avatar two',
+		date: '1 июн',
+	},
+	{
+		id: v1(),
+		name: 'Игорь Юдинцев',
+		text: 'Я в отпуске, как приду будем потеть!',
+		photo: five,
+		alt: 'avatar two',
+		date: '1 июн',
+	},
+	{
+		id: v1(),
+		name: 'Елена Кильянова',
+		text: 'Это что на озоне? Много там, я много не понесу!',
+		photo: six,
+		alt: 'avatar two',
+		date: '18 апр',
+	},
 ]
 
 const MessagesPage = (props: PropsType) => {
-  return (
-    <main>
-      {/* здесь должна загрузиться либо MessagesList, либо Message */}
-      <Routes>
-        <Route path='/' element={
-          <ul className="wrapper">
-            {
-              props.friendsPage.friends.map(i => {
-                return (
-                  <MessagesList key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname}
-                                text={props.messagePage.message[i.id]}/>
-                )
-              })
-            }
-          </ul>
-        }/>
-        {/*<Route path='/' element={}/>*/}
+	console.log('props: ', props.friendsPage.friends[0].id);
+	return (
+		<main>
+			{/* здесь должна загрузиться либо MessagesList, либо Message */}
+			<Routes>
+				<Route path='/'
+							 element={
+					<ul className="wrapper">
+						{
+							props.friendsPage.friends.map(i => {
+								return (
+									<MessagesList key={i.id} id={i.id} avatar={i.avatar} name={i.name} surname={i.surname}
+																text={props.messagePage.message[i.id]}/>
+								)
+							})
+						}
+					</ul>
+				}/>
 
-        <Route path={
-          props.messagePage.message[]
-        } element={
-          {
-            props.friend.friends.filter(f => {
-              return <Message/>
-            })
-          }}
-        }>
-
-        {/*<div>*/}
-        {/*  {*/}
-        {/*    props.stateFriends.friends.filter(f => {*/}
-        {/*      return (*/}
-        {/*      <Routes*/}
-        {/*        <Route path={`/${f.name}-${f.surname}`} element={<Message/>}/>*/}
-        {/*      </Routes>*/}
-        {/*      )*/}
-        {/*    })*/}
-        {/*  }*/}
-        {/*</div>*/}
-      </Routes>
-    </main>
-  );
+				<Route path={`/${props.friendsPage.friends[0].id}`}
+							 element={<Message/>}/>
+			</Routes>
+		</main>
+	);
 };
 
 export default MessagesPage;
