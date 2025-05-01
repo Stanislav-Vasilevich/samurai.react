@@ -83,7 +83,7 @@ const MessagesPage = (props: PropsType) => {
 		<main>
 			{/* здесь должна загрузиться либо MessagesList, либо Message */}
 			<Routes>
-				<Route path='/'
+				<Route path={`/`}
 							 element={
 					<ul className="wrapper">
 						{
@@ -97,8 +97,8 @@ const MessagesPage = (props: PropsType) => {
 					</ul>
 				}/>
 
-				<Route path={`/${props.friendsPage.friends[0].id}`}
-							 element={<Message/>}/>
+				{/*<Route path={`/messages/${props.friendsPage.friends[0].id}`}*/}
+				{/*			 element={<Message/>}/>*/}
 			</Routes>
 		</main>
 	);
