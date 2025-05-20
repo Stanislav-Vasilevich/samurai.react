@@ -1,18 +1,25 @@
 import pointMap from './../../src/img/page/main/user-block/point-map.svg';
 import backgroundPhoto from './../../src/img/page/main/user-block/mainPhoto.png';
 import avatarPhoto from './../../src/img/page/main/user-block/avatar.webp';
-import avatarPhoto2 from './../../src/components/MyPage/Post/travel.webp';
-import photoPost from '../components/MyPage/Post/my-photo.webp';
-import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
-import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
-import antonBorisenko from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
-import olegSobolev from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
+import avatarPhoto2 from '../components/HomePage/Post/travel.webp';
+import photoPost from '../components/HomePage/Post/my-photo.webp';
+import aE from './../img/page/main/sidebar-right/friends/aleksey-eterevskov.jpeg';
+import eK from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
+import aB from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
+import oS from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
 import iconHomePage from "../components/Sidebar/SidebarLeft/icons/myPage.svg";
 import iconNewsPage from "../components/Sidebar/SidebarLeft/icons/news.svg";
 import iconMessagesPage from "../components/Sidebar/SidebarLeft/icons/messages.svg";
 import iconFriendsPage from "../components/Sidebar/SidebarLeft/icons/friends.svg";
 import iconCommunitiesPage from "../components/Sidebar/SidebarLeft/icons/communities.svg";
 import iconPhotoPage from "../components/Sidebar/SidebarLeft/icons/photo.svg";
+import one from '../components/MessagesPage/MessagesList/one.jpg';
+import two from '../components/MessagesPage/MessagesList/two.jpg';
+import three from '../components/MessagesPage/MessagesList/three.jpg';
+import four from '../components/MessagesPage/MessagesList/four.jpg';
+import five from '../components/MessagesPage/MessagesList/five.jpg';
+import six from '../components/MessagesPage/MessagesList/six.jpg';
+import { v1 } from 'uuid';
 
 export type UserBlockType = {
   id: number
@@ -41,7 +48,7 @@ type PostType = {
   likesCount: number
 }
 export type FriendType = {
-  id: number
+  id: string
   name: string
   surname: string
   avatar: string
@@ -92,11 +99,6 @@ export type StateType = {
   getUser: (id: string) => FriendType
   getUserId: (id: string) => number
 }
-
-const idAlekseyEterevskov = 2;
-const idElenaKilyanova = 3;
-const idAntonBorisenko = 4;
-const idOlegSobolev = 5;
 
 export const state: StateType = {
   homePage: {
@@ -173,22 +175,22 @@ export const state: StateType = {
   },
   messagesPage: {
     message: {
-      [idAlekseyEterevskov]: [
+      '1': [
         {id: 1, isMyMessage: true, text: 'Не поверишь патрюля завели', date: '22 сен'},
         {id: 2, isMyMessage: false, text: 'Да ладно? Вот это ничесе', date: '22 сен'},
 				{id: 3, isMyMessage: true, text: 'Сам в шоке, ща видео скину', date: '22 сен'}
       ],
-      [idElenaKilyanova]: [
+      '2': [
         {id: 1, isMyMessage: false, text: 'Зайди в озон. Сейчас скину тебе код на whatsApp', date: '12 авг'},
         {id: 2, isMyMessage: true, text: 'Это что на озоне? Много там, я много не понесу!', date: '12 авг'},
 				{id: 3, isMyMessage: false, text: 'Нет, не много', date: '12 авг'}
       ],
-      [idAntonBorisenko]: [
+      '3': [
         {id: 1, isMyMessage: false, text: 'Привет! На работе?', date: '20 июл'},
         {id: 2, isMyMessage: true, text: 'Здарова, да. Сейчас дымники доделываю и домой', date: '20 июл'},
 				{id: 3, isMyMessage: false, text: 'Понял, будешь дома набирай!', date: '20 июл'}
       ],
-      [idOlegSobolev]: [
+      '4': [
         {id: 1, isMyMessage: false, text: 'Привет! Я скоро приеду, есть дело, замутим))', date: '1 июн'},
         {id: 2, isMyMessage: true, text: 'Давай приезжай, я в деле однозначно!', date: '1 июн'},
 				{id: 3, isMyMessage: false, text: 'Отлично! Буду примерно весной!', date: '2 июн'}
@@ -197,10 +199,10 @@ export const state: StateType = {
   },
   friendsPage: {
     friends: [
-      {id: idAlekseyEterevskov, name: 'Алексей', surname: 'Етеревсков', avatar: alekseyEterevskov, status: true},
-      {id: idElenaKilyanova, name: 'Елена', surname: 'Кильянова', avatar: elenaKilyanova, status: false},
-      {id: idAntonBorisenko, name: 'Антон', surname: 'Борисенко', avatar: antonBorisenko, status: true},
-      {id: idOlegSobolev, name: 'Олег', surname: 'Соболев', avatar: olegSobolev, status: true},
+      {id: '1', name: 'Алексей', surname: 'Етеревсков', avatar: aE, status: true},
+      {id: '2', name: 'Елена', surname: 'Кильянова', avatar: eK, status: false},
+      {id: '3', name: 'Антон', surname: 'Борисенко', avatar: aB, status: true},
+      {id: '4', name: 'Олег', surname: 'Соболев', avatar: oS, status: true},
     ],
   },
   communitiesPage: {},
@@ -244,7 +246,7 @@ export const state: StateType = {
 			},
 			{
 				id: 6,
-				path: '/photo',
+				path: '/photos',
 				src: iconPhotoPage,
 				alt: 'Photo',
 				text: 'Фотографии'
@@ -258,3 +260,69 @@ export const state: StateType = {
     return this.friendsPage.friends.filter(f => f.name === name)[0].id;
   },
 }
+
+
+// type PropsType = {
+//   friendsPage: FriendsPageType
+//   messagePage: MessagesPageType
+// }
+//
+// export type userType = {
+//   id: string
+//   name: string
+//   text: string
+//   photo: string
+//   alt: string
+//   date: string
+// }
+//
+// const data: Array<userType> = [
+//   {
+//     id: v1(),
+//     name: 'Олег Соболев',
+//     text: 'Давай приезжай, я в деле однозначно!',
+//     photo: one,
+//     alt: 'avatar one',
+//     date: '22 сен',
+//   },
+//   {
+//     id: v1(),
+//     name: 'Алексей Етеревсков',
+//     text: 'Ну ты иде есть?',
+//     photo: two,
+//     alt: 'avatar two',
+//     date: '12 авг',
+//   },
+//   {
+//     id: v1(),
+//     name: 'Антон Борисенко',
+//     text: 'Можешь создать сайт, где все мне платят на карту?',
+//     photo: three,
+//     alt: 'avatar two',
+//     date: '20 июл',
+//   },
+//   {
+//     id: v1(),
+//     name: 'Вирса Петровна',
+//     text: 'Мяу мяу мяу. Мяу мяу мяу мяу мяу мяу мяу!',
+//     photo: four,
+//     alt: 'avatar two',
+//     date: '1 июн',
+//   },
+//   {
+//     id: v1(),
+//     name: 'Игорь Юдинцев',
+//     text: 'Я в отпуске, как приду будем потеть!',
+//     photo: five,
+//     alt: 'avatar two',
+//     date: '1 июн',
+//   },
+//   {
+//     id: v1(),
+//     name: 'Елена Кильянова',
+//     text: 'Это что на озоне? Много там, я много не понесу!',
+//     photo: six,
+//     alt: 'avatar two',
+//     date: '18 апр',
+//   },
+// ]

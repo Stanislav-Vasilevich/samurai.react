@@ -1,6 +1,6 @@
 import React from 'react';
 import {FriendsPageType, NewsPageType} from '../../redux/state';
-import Post from '../MyPage/Post/Post';
+import Post from '../HomePage/Post/Post';
 import SidebarRight from '../Sidebar/SidebarRight/SidebarRight';
 import s from './NewsPage.module.css';
 

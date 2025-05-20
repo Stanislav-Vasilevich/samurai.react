@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PhotoPage = () => {
+const ErrorPage = () => {
   return (
     <main>
-      photo page
+      Error 404
     </main>
   );
 };
 
-export default PhotoPage;
+export default ErrorPage;

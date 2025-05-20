@@ -1,16 +1,16 @@
 import React from 'react';
-import s from './MyPage.module.css';
+import s from './HomePage.module.css';
 import UserBlock from './User/User';
-import Post from "./Post/Post";
-import SidebarRight from "../Sidebar/SidebarRight/SidebarRight";
-import {FriendsPageType, HomePageType, StateType} from '../../redux/state';
+import Post from './Post/Post';
+import SidebarRight from '../Sidebar/SidebarRight/SidebarRight';
+import {FriendsPageType, HomePageType} from '../../redux/state';
 
 type PropsType = {
 	mainContent: HomePageType
 	sidebarRight: FriendsPageType
 }
 
-const MyPage = (props: PropsType) => {
+const HomePage = (props: PropsType) => {
 	return (
 		<main>
 			<UserBlock userBlock={props.mainContent.userBlock}/>
@@ -39,4 +39,4 @@ const MyPage = (props: PropsType) => {
 	);
 };
 
-export default MyPage;
+export default HomePage;
