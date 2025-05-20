@@ -7,12 +7,12 @@ import alekseyEterevskov from './../img/page/main/sidebar-right/friends/aleksey-
 import elenaKilyanova from './../img/page/main/sidebar-right/friends/helena-kilyanova.jpeg';
 import antonBorisenko from './../img/page/main/sidebar-right/friends/anton-borisenko.jpg';
 import olegSobolev from './../img/page/main/sidebar-right/friends/oleg-sobolev.webp';
-import iconMyPage from "../components/Sidebar/SidebarLeft/icons/myPage.svg";
-import iconNews from "../components/Sidebar/SidebarLeft/icons/news.svg";
-import messages from "../components/Sidebar/SidebarLeft/icons/messages.svg";
-import friends from "../components/Sidebar/SidebarLeft/icons/friends.svg";
-import communities from "../components/Sidebar/SidebarLeft/icons/communities.svg";
-import photo from "../components/Sidebar/SidebarLeft/icons/photo.svg";
+import iconHomePage from "../components/Sidebar/SidebarLeft/icons/myPage.svg";
+import iconNewsPage from "../components/Sidebar/SidebarLeft/icons/news.svg";
+import iconMessagesPage from "../components/Sidebar/SidebarLeft/icons/messages.svg";
+import iconFriendsPage from "../components/Sidebar/SidebarLeft/icons/friends.svg";
+import iconCommunitiesPage from "../components/Sidebar/SidebarLeft/icons/communities.svg";
+import iconPhotoPage from "../components/Sidebar/SidebarLeft/icons/photo.svg";
 
 export type UserBlockType = {
   id: number
@@ -210,42 +210,42 @@ export const state: StateType = {
 			{
 				id: 1,
 				path: '/',
-				src: iconMyPage,
+				src: iconHomePage,
 				alt: 'User',
 				text: 'Моя страница'
 			},
 			{
 				id: 2,
 				path: '/news',
-				src: iconNews,
+				src: iconNewsPage,
 				alt: 'News',
 				text: 'Новости'
 			},
 			{
 				id: 3,
 				path: '/messages',
-				src: messages,
+				src: iconMessagesPage,
 				alt: 'Messages',
 				text: 'Сообщения'
 			},
 			{
 				id: 4,
 				path: '/friends',
-				src: friends,
+				src: iconFriendsPage,
 				alt: 'Friends',
 				text: 'Друзья'
 			},
 			{
 				id: 5,
 				path: '/communities',
-				src: communities,
+				src: iconCommunitiesPage,
 				alt: 'CommunitiesPage',
 				text: 'Сообщества'
 			},
 			{
 				id: 6,
 				path: '/photo',
-				src: photo,
+				src: iconPhotoPage,
 				alt: 'Photo',
 				text: 'Фотографии'
 			},
