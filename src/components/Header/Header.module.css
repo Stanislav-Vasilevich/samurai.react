@@ -40,5 +40,6 @@
 }
 
 .header__logoName {
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
 }

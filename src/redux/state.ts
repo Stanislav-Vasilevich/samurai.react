@@ -97,7 +97,7 @@ export type StateType = {
   photoPage: PhotoPageType
 	sideBar: SideBarType
   getUser: (id: string) => FriendType
-  getUserId: (id: string) => number
+  getUserId: (id: string) => string
 }
 
 export const state: StateType = {
@@ -212,14 +212,14 @@ export const state: StateType = {
 				path: '/',
 				src: iconHomePage,
 				alt: 'User',
-				text: 'Моя страница'
+				text: 'Моя страница',
 			},
 			{
 				id: 2,
 				path: '/news',
 				src: iconNewsPage,
 				alt: 'News',
-				text: 'Новости'
+				text: 'Новости',
 			},
 			{
 				id: 3,
@@ -251,11 +251,11 @@ export const state: StateType = {
 			},
 		]
 	},
-  getUser(name) {
-    return this.friendsPage.friends.filter(f => f.name === name)[0];
+  getUser(id: string) {
+    return this.friendsPage.friends.filter(f => f.id === id)[0];
   },
-  getUserId(name: string) {
-    return this.friendsPage.friends.filter(f => f.name === name)[0].id;
+  getUserId(id: string) {
+    return this.friendsPage.friends.filter(f => f.id === id)[0].id;
   },
 }
 

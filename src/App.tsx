@@ -28,10 +28,12 @@ function App(props: PropsType) {
           <Route path="/news"
                  element={<NewsPage mainContent={props.state.newsPage} sidebarRight={props.state.friendsPage}/>}/>
           <Route path="/messages"
-                 element={<MessagesPage friendsPage={props.state.friendsPage} messagePage={props.state.messagesPage}/>}/>
-          <Route path="/friends" element={<FriendsPage state={props.state.friendsPage}/>}/>
-          <Route path="/communities" element={<CommunitiesPage/>}/>
-          <Route path="/photos" element={<PhotosPage/>}/>
+                 element={<MessagesPage friendsPage={props.state.friendsPage} messagePage={props.state.messagesPage}
+                                        sidebarRight={props.state.friendsPage}/>}/>
+          <Route path="/friends"
+                 element={<FriendsPage state={props.state.friendsPage} sidebarRight={props.state.friendsPage}/>}/>
+          <Route path="/communities" element={<CommunitiesPage sidebarRight={props.state.friendsPage}/>}/>
+          <Route path="/photos" element={<PhotosPage sidebarRight={props.state.friendsPage}/>}/>
           <Route path="/*" element={<ErrorPage/>}/>
         </Routes>
       </div>

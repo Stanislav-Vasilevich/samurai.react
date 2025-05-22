@@ -1,15 +1,18 @@
 import React from 'react';
 import {FriendsPageType} from "../../redux/state";
 import s from './FriendsPage.module.css';
+import SidebarRight from '../Sidebar/SidebarRight/SidebarRight';
+import styles from './FriendsPage.module.css';
 
 type PropsType = {
 	state: FriendsPageType
+	sidebarRight: FriendsPageType
 }
 
 const FriendsPage = (props: PropsType) => {
 	return (
-		<main>
-			<div className="wrapper">
+		<main className={styles.main}>
+			<div className={styles.row}>
 				<ul className={s.list}>
 					{
 						props.state.friends.map(f => {
@@ -27,6 +30,7 @@ const FriendsPage = (props: PropsType) => {
 						})
 					}
 				</ul>
+				<SidebarRight sidebarRight={props.sidebarRight.friends}/>
 			</div>
 		</main>
 	);

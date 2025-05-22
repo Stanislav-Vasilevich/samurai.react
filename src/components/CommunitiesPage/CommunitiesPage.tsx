@@ -1,9 +1,14 @@
 import React from 'react';
+import {FriendsPageType} from '../../redux/state';
 
-const CommunitiesPage = () => {
+type Props = {
+  sidebarRight: FriendsPageType
+}
+
+const CommunitiesPage = (props: Props) => {
   return (
     <main>
-      communities page
+      <div>communities page</div>
     </main>
   );
 };

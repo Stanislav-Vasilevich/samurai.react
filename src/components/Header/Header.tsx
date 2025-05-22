@@ -12,7 +12,7 @@ const Header = () => {
           <div className={s.header__logoImg}>
             <img className={s.header__logoPhoto} src={logo} alt="Логотип блога" width="34" height="34"/>
           </div>
-          <span className={s.header__logoName}>STANISLAV VASILEVICH</span>
+          <span className={s.header__logoName}>VASILEVICH</span>
         </a>
         <HeaderUser/>
       </div>

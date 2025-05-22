@@ -2,7 +2,7 @@ import React from 'react';
 import {FriendsPageType, NewsPageType} from '../../redux/state';
 import Post from '../HomePage/Post/Post';
 import SidebarRight from '../Sidebar/SidebarRight/SidebarRight';
-import s from './NewsPage.module.css';
+import styles from './NewsPage.module.css';
 
 type PropsType = {
   mainContent: NewsPageType
@@ -11,7 +11,7 @@ type PropsType = {
 
 const NewsPage = (props: PropsType) => {
   return (
-    <main className={s.main}>
+    <main className={styles.main}>
       <div>
         {props.mainContent.posts.map(i => {
           return <Post

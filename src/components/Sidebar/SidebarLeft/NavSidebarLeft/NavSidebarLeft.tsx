@@ -1,6 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import s from '../SidebarLeft.module.css';
 import React from 'react';
+import styles from './NavSidebarLeft.module.css';
 
 type PropsType = {
   path: string

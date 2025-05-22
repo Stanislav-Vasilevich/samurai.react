@@ -1,6 +1,11 @@
 import React from 'react';
+import {FriendsPageType} from '../../redux/state';
 
-const PhotosPage = () => {
+type Props = {
+  sidebarRight: FriendsPageType
+}
+
+const PhotosPage = (props: Props) => {
   return (
     <main>
       photo page

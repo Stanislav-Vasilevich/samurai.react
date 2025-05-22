@@ -8,8 +8,6 @@ type PropsType = {
 }
 
 const SidebarRight = (props: PropsType) => {
-	console.log('props: ', props);
-
 	return (
 		<div className={s.sidebarRight}>
 			<SidebarRightBox sidebarRight={props.sidebarRight}/>
